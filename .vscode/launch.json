@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Day1",
+            "program": "${workspaceFolder}/Day1\\program.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Day2",
+            "program": "${workspaceRoot}/Day2\\program.js",
+            "args": [
+                "input.txt"
+            ],
+            "cwd": "${workspaceRoot}"
+        }
+    ]
+}
