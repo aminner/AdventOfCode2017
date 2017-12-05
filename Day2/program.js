@@ -1,5 +1,5 @@
 var utils = require("../AOCUtils.js")
-const BASE_PATH = "./Day2/"
+const BASE_PATH = "./"
 
 function start() {
     var inputFileName = "input.txt";
@@ -7,7 +7,6 @@ function start() {
         inputFileName = process.argv[2];
     }
     var filePath = BASE_PATH + inputFileName;
-    console.log(filePath);
     utils.read(filePath, {
         error: function (error) {
             console.log(error);
@@ -20,20 +19,20 @@ function start() {
 function processInput(inputLines) {
     var checkSum = 0;
     inputLines.forEach(line => {
-        var max = findMax(line);
-        var min = findMin(line);
+        console.log(line);
+        var arrayOfNumbers = line.split('\t').map(function(item) {
+            return parseInt(item, 10);
+        });
+        
+        console.log(arrayOfNumbers)
+        var max = arrayOfNumbers.reduce(function(a, b) {
+            return Math.max(a, b) });
+        var min = arrayOfNumbers.reduce(function(a, b) {
+            return Math.min(a, b) });
+        console.log(max + " - " + min);
         checkSum += (max - min);
     });
-}
-
-function findMax(line)
-{
-
-}
-
-function findMin(line)
-{
-    
+    console.log(checkSum);
 }
 
 start();
