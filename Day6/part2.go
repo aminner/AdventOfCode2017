@@ -29,7 +29,13 @@ func main() {
 	var arrayString string
 	arrayString = IntArrayToString(sArray)
 	count := 0
-	for ok := true; ok; ok = !StringInSlice(arrayString, combinations) {
+	firstStringFoundInSlice := false
+	for ok := true; ok; ok = !StringInSliceTwice(arrayString, combinations) {
+		if StringInSlice(arrayString, combinations) && !firstStringFoundInSlice {
+			firstStringFoundInSlice = true
+			count = 0
+		}
+
 		//Add initial data set to combination
 		combinations = append(combinations, arrayString)
 
@@ -97,6 +103,16 @@ func FindMax(sArray []int) int {
 		}
 	}
 	return maxIndex
+}
+
+func StringInSliceTwice(a string, list []string) bool {
+	found := 0
+	for _, b := range list {
+		if b == a {
+			found++
+		}
+	}
+	return found >= 2
 }
 
 func StringInSlice(a string, list []string) bool {
